@@ -1,0 +1,242 @@
+:root {
+  --game-width: 90vmin; /* 70% of the smaller side of the viewport (either width or height) */
+  --canvas-width: 70vmin;  
+  --score-width: 80vmin;
+  --border-width: 1.5vmin;
+
+  --instruction-size: 70%;
+
+  --font-size: clamp(0.75rem, 2vw, 1.25rem);
+  --icon-width: 20%;
+  --settings-height: 10vh;
+  /* colors */
+  --border1-default: rgb(49, 113, 49);
+  --border2-default:rgb(14, 76, 60);
+  --border3-default:rgb(68, 130, 121);
+  --color-game-screen: rgb(16, 26, 70);
+  --color-score-field:rgba(56, 105, 98, 0.126);
+  --color-canvas:rgb(13 18 39);
+  --color-background:rgb(13 18 39);
+  --color-instruction: rgb(16, 26, 70);;
+  --color-font-yellow:rgb(225, 189, 61);
+  --color-settings-panel: rgb(202, 169, 69);
+ }
+/* rgb(16, 26, 70); */ 
+body{
+    min-width: 320px;
+    margin: 0;
+    padding:0;
+}
+.container{
+    min-height: 100vh;
+    /* min-width: 90vw; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--color-background);
+}
+.game-screen{
+    margin: 1rem;
+    /* padding: 0.8rem;
+    padding-bottom: 1.2rem; */
+    padding: 0.8rem 0.8rem 1.2rem 0.8rem;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: var(--game-width);
+    height: var(--game-width);
+    background-color:var(--color-game-screen);
+    border-radius: 0.5rem;
+}
+.score-field{
+    background-color: rgba(2, 255, 36, 0.205);
+    width:var(--score-width);
+    height:var(--score-width);
+    color:var(--color-font-yellow);
+    font-family: "DotGothic16", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 1rem; */
+    font-size: var(--font-size);
+    letter-spacing: 0.25rem;
+    margin:0.5rem;
+    border-radius: 0.5rem;
+}
+.canvas{
+    display: flex;
+    margin: 0 auto;
+     position: relative; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: var(--canvas-width);
+    height: var(--canvas-width);
+    background-color: var(--color-canvas);
+}
+
+.instruction-overlay {
+  margin: 0 auto;
+  position: absolute;
+  width: var(--instruction-size);
+  height: var(--instruction-size);
+  background-color: var(--color-instruction);
+  color: var(--color-font-yellow);
+  font-family: "DotGothic16", sans-serif;
+  text-transform: capitalize;
+  font-size: var(--font-size);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--color-instruction);
+  color: var(--color-font-yellow);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+#snake-logo{
+    opacity: 0.86;
+    width: clamp(6rem, 25vmin, 12rem);
+    height: auto;
+    /* width:12rem;
+    height: 12rem; */
+}
+.settings-panel{
+    width: var(--game-width);
+    height: var(--settings-height);
+    background-color:var(--color-settings-panel);
+    margin: 1rem auto 1rem; /*top l-r bottom*/
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* font-size: 1rem; */
+    font-size: var(--font-size);
+    border-radius: 0.5rem;
+}
+.border1{
+    border: var(--border-width) solid var(--border1-default);
+    box-shadow: inset 2px 2px 2px 5px var(--border1-default);
+    border-radius: 0.5rem;
+}
+.border2{
+    border: var(--border-width) solid var(--border2-default);
+    box-shadow: inset 2px 2px 2px 5px var(--border2-default);
+    border-radius: 0.5rem;
+}
+.border3{
+    border: var(--border-width) solid var(--border3-default);
+    box-shadow: inset 2px 2px 2px 5px var(--border3-default);
+    border-radius: 0.5rem;
+}
+
+.hearts,
+.scores,
+.scores2 {
+    flex: 1; /*flex grow 1 split the row evenly*/
+    justify-content: center;
+    align-items: center;
+}
+
+.icons {
+    width: var(--icon-width);
+    height: var(--icon-width);
+}
+.icons2{
+    width: var(--icon-width);
+    height: var(--icon-width);
+}
+.scores {
+    width:var(--icon-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.score-field img, h1{
+    margin:0.2rem;
+}
+
+@media (max-width: 600px) {
+  .instruction-overlay {
+    /* font-size: 0.95rem;*/
+    font-size: var(--font-size);  
+  }
+  /* #snake-logo{
+    width:8.5rem;
+    height: 8rem;
+  } */
+  .score-field img{
+    width: 1.5rem;
+    height: 2rem;
+  }
+  .settings-panel {
+    
+    flex-direction: column;
+  }
+}
+@media (max-width: 320px){
+    .container{
+        background-color: aliceblue;
+    }
+    .score-field img{
+    width: 0.5rem;
+    height: 1rem;
+    }
+    #snake-logo{
+    width:7.5rem;
+    height: 6rem;
+    }
+    .instruction{
+    font-size:0.4rem ;
+    }
+    .score-field {
+    font-size: 0.5rem;
+    }
+    .settings-panel {
+    
+    flex-direction: column;
+    }
+}
+/* You have only 2 (max-width: 600px and 320px). You’ll eventually want breakpoints at:
+768px (tablet)
+1024px (small laptop)
+1280px+ (desktop) */
+
+/* include animations in loading as well as during settings page */
+
+.snake-food{
+    width: 100%;
+    height: 100%;
+    background-color: #db6d6d;
+    border: #999 2px solid;
+}
+
+.snake-body{
+    width: 100%;
+    height: 100%;
+    background-color: darkgreen;
+    border: #999 2px solid;
+}
+
+

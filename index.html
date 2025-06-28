@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <title>Snake Game</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="game-screen">
+       <div class="score-field">
+            <div class="hearts">
+                <img id="heart0"  class="icons" src="res/red-heart.png" alt="score">
+                <img id="heart1"  class="icons" src="res/red-heart.png" alt="score">
+                <img id="heart2"  class="icons" src="res/red-heart.png" alt="score">
+            </div>
+               <div class="scores2"><h1 id="score">000</h1></div>
+               <div class="scores">
+                <img class="icons2" src="res/trophy.png" alt="score">
+                <h1 id="highScore">000</h1>
+            </div>
+       </div> 
+      <div class="field">
+            <div class="border1">
+                <div class="border2">
+                    <div class="border3">
+                        <div class="canvas" id="canvas">
+                                <div class="instruction-overlay" id="instruction-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="settings-panel"></div>
+</div>
+   
+
+<script src="script.js"></script>
+</body>
+</html>
