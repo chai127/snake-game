@@ -1,3 +1,14 @@
+@media screen and (max-width: 1024px) {
+  .score-field {
+    font-size: 0.9rem;
+  }
+.game-screen {
+  width: var(--game-width);
+  height: var(--game-width);
+  padding: 5vmin 0;
+  position: relative;
+}
+}
 
 
 @media screen and (max-width: 768px){
@@ -13,15 +24,38 @@
     width: 1.5rem;
     height: 2rem;
   }
-  .settings-panel {
-    
-    flex-direction: column;
+   .settings-panel {
+    width: 80%; 
+    flex-direction: column; 
   }
 }
-@media screen and (max-width: 320px){
-    .container{
-        background-color: aliceblue;
+
+
+@media screen and (max-width: 480px) {
+    .score-field img{
+
+    width: 0.5rem;
+    height: 1rem;
     }
+    #snake-logo{
+    width:7.5rem;
+    height: 6rem;
+    }
+    .instruction{
+    font-size:0.4rem ;
+    }
+    .score-field {
+    padding: 0;
+    height: 10%;
+    font-size: 0.5rem;
+    }
+    .settings-panel {
+    flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 320px){
     .score-field img{
     width: 0.5rem;
     height: 1rem;

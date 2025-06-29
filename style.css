@@ -1,6 +1,8 @@
 :root {
-  --game-width: 90vmin; /* 70% of the smaller side of the viewport (either width or height) */
-  --canvas-width: 70vmin;  
+  /* --game-width: 90vmin; /* 70% of the smaller side of the viewport (either width or height) */
+  /* --canvas-width: 70vmin;   */ 
+  --game-width: clamp(200px, 90vmin, 600px);
+--canvas-width: clamp(150px, 70vmin, 500px);
   --score-width: 80vmin;
   --border-width: 1.5vmin;
 
@@ -50,6 +52,7 @@ body{
     height: var(--game-width);
     background-color:var(--color-game-screen);
     border-radius: 0.5rem;
+    padding: 5vmin 0;
 }
 .score-field{
     background-color: rgba(2, 255, 36, 0.205);
@@ -70,7 +73,7 @@ body{
 .canvas{
     display: flex;
     margin: 0 auto;
-     position: relative; 
+    position: relative; 
     justify-content: center;
     align-items: center;
     flex-direction: column;
