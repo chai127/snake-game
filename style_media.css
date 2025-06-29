@@ -1,0 +1,43 @@
+
+
+@media screen and (max-width: 768px){
+  .instruction-overlay {
+    /* font-size: 0.95rem;*/
+    font-size: var(--font-size);  
+  }
+  #snake-logo{
+    width:8.5rem;
+    height: 8rem;
+  }
+  .score-field img{
+    width: 1.5rem;
+    height: 2rem;
+  }
+  .settings-panel {
+    
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 320px){
+    .container{
+        background-color: aliceblue;
+    }
+    .score-field img{
+    width: 0.5rem;
+    height: 1rem;
+    }
+    #snake-logo{
+    width:7.5rem;
+    height: 6rem;
+    }
+    .instruction{
+    font-size:0.4rem ;
+    }
+    .score-field {
+    font-size: 0.5rem;
+    }
+    .settings-panel {
+    
+    flex-direction: column;
+    }
+}
