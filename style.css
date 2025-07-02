@@ -2,13 +2,13 @@
   /* --game-width: 90vmin; /* 70% of the smaller side of the viewport (either width or height) */
   /* --canvas-width: 70vmin;   */ 
   --game-width: clamp(200px, 90vmin, 600px);
---canvas-width: clamp(150px, 70vmin, 500px);
-  --score-width: 80vmin;
+  --canvas-width: clamp(150px, 70vmin, 500px);
+  --score-width: 92%;
   --border-width: 1.5vmin;
 
   --instruction-size: 70%;
 
-  --font-size: clamp(0.75rem, 2vw, 1.25rem);
+  /* --font-size: clamp(0.75rem, 0.95rem, 1rem); */
   --icon-width: 20%;
   --settings-height: 10vh;
   /* colors */
@@ -121,8 +121,8 @@ body{
     opacity: 0.86;
     width: clamp(6rem, 25vmin, 12rem);
     height: auto;
-    /* width:12rem;
-    height: 12rem; */
+    width:12rem;
+    height: 12rem;
 }
 .settings-panel{
     width: var(--game-width);

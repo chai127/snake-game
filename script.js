@@ -20,6 +20,9 @@ let food = null;
 let gameInterval;
 let gameSpeedDelay = 200;
 
+let dx = 1; // initial horizontal movement right
+let dy = 0;
+
 onLoading();
 
 function onLoading() {
@@ -49,19 +52,23 @@ function handleKeyPress(event) {
     switch (event.key) {
         case 'ArrowUp':
             event.preventDefault();
-            y_y--;
+            // y_y--;
+            if (dy !== 1) { dx = 0; dy = -1; }
             break;
         case 'ArrowDown':
             event.preventDefault();
-            y_y++;
+            if (dy !== -1) { dx = 0; dy = 1; }
+            // y_y++;
             break;
         case 'ArrowLeft':
             event.preventDefault();
-            x_x--;
+            if (dx !== 1) { dx = -1; dy = 0; }
+            // x_x--;
             break;
         case 'ArrowRight':
             event.preventDefault();
-            x_x++;
+            if (dx !== -1) { dx = 1; dy = 0; }
+            // x_x++;
             break;
         default:
             return;
@@ -91,6 +98,13 @@ function startGame() {
     x_x = x_snake;
     y_y = y_snake;
     draw();
+
+    gameSpeedDelay = 200; // 🔥 Reset speed here
+    clearInterval(gameInterval); // Just in case
+
+    //move snanke automatically, 
+    // const intervalId = setInterval(functionToRun, delayInMilliseconds);
+     gameInterval = setInterval(gameLoop, gameSpeedDelay);
    
 }
 
@@ -137,6 +151,9 @@ function ifFoodAte() {
 function updateScore() {
     playerScore++;
     scoreDiv.textContent = playerScore.toString().padStart(3, '0');
+    if (playerScore % 5 === 0) {
+        increaseSpeed();
+    }
 }
 
 function updateHighScore() {
@@ -213,20 +230,42 @@ function resetstuff(){
     
 }
 
+function gameLoop() {
+    const snakeBody = document.getElementById("snake-body");
+    if (!snakeBody) return;
+
+    x_x += dx;
+    y_y += dy;
+
+    snakeBody.style.gridColumn = x_x;
+    snakeBody.style.gridRow = y_y;
+
+    handleBoundary();
+    ifFoodAte();
+}
+
+//manage the speed of the moving snake
+
+function increaseSpeed(){
+ if (gameSpeedDelay > 100) {
+        gameSpeedDelay -= 10;
+        clearInterval(gameInterval);
+        gameInterval = setInterval(gameLoop, gameSpeedDelay);
+    }
+}
+
 //pause game
 
 //play game where you left off
 
 //like reset highscore and like the whole game, including the theme
 
-//move snanke automatically, 
-
-//manage the speed of the moving snake
-
 //add modes? like noob, easy, kachaow and idk pro? for speed
 
 //theme stuff, make it dynamic cause im done with the style sheet rn its perfect as it is(im too scared to change any shit)
 
 //increase snake body
+//Collision check with self is missing
+// No clear handling when food spawns on snake (after implementing body growth)
 
 
