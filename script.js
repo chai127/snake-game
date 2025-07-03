@@ -23,7 +23,9 @@ let gameSpeedDelay = 200;
 let dx = 1; // initial horizontal movement right
 let dy = 0;
 
-onLoading();
+document.addEventListener("DOMContentLoaded", function () {
+    onLoading(); // now runs only after DOM and audio setup
+});
 
 function onLoading() {
 // In onLoading()
@@ -33,6 +35,8 @@ instructionBox.innerHTML = `
     <img src="res/snake-logo-removebg.png" alt="snake logo" id="snake-logo">
   </div>`;
 instructionBox.style.display = "flex";
+
+    playSoundEffect('bgMusic_1');
 }
 
 document.addEventListener('keydown', handleKeyPress);
@@ -90,7 +94,7 @@ gameElements.forEach(el => el.remove());
 }
 
 function startGame() {
-    
+
     lives = totalLives;
     playerScore = 0;
     scoreDiv.textContent = "000";
@@ -145,10 +149,12 @@ function ifFoodAte() {
     if (food && food.x === x_x && food.y === y_y) {
         food = generateFood();
         updateScore();
+         
     }
 }
 
 function updateScore() {
+    playSoundEffect('score'); 
     playerScore++;
     scoreDiv.textContent = playerScore.toString().padStart(3, '0');
     if (playerScore % 5 === 0) {
@@ -158,6 +164,7 @@ function updateScore() {
 
 function updateHighScore() {
     if (playerScore > currentHighScore) {
+    playSoundEffect('highScore'); 
         currentHighScore = playerScore;
         highScoreDiv.textContent = playerScore.toString().padStart(3, '0');
     }
@@ -171,6 +178,7 @@ function handleBoundary() {
 
 function loseLife() {
     lives--;
+    playSoundEffect('heart');
     if (lives > 0) {
         hearts[lives].style.display = 'none';
     }
@@ -199,6 +207,7 @@ function restartRound() {
 
 function gameOver() {
  gameStarted = false;
+ playSoundEffect('gameEnd');
     updateHighScore();
     resetstuff(); // Clears snake and food only
 
@@ -268,4 +277,12 @@ function increaseSpeed(){
 //Collision check with self is missing
 // No clear handling when food spawns on snake (after implementing body growth)
 
+function playSoundEffect(effect) {
+    if (window.isMuted) return;
 
+    const sound = window.musicEffects[effect];
+    if (sound) {
+        sound.currentTime = 0;
+        sound.play().catch(err => console.warn("Failed to play sound:", err));
+    }
+}

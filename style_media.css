@@ -34,7 +34,7 @@
   }
    .settings-panel {
     width: 80%; 
-    flex-direction: column; 
+    /* flex-direction: column;  */
   }
 }
 
@@ -60,7 +60,7 @@
   font-size: 0.5rem;
 }
     .settings-panel {
-    flex-direction: column;
+    /* flex-direction: column; */
     }
 }
 
@@ -78,6 +78,6 @@
     font-size:0.3rem;
     }
     .settings-panel {
-    flex-direction: column;
+    /* flex-direction: column; */
     }
 }
