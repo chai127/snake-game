@@ -60,6 +60,7 @@ window.musicEffects.bgMusic_2.loop = true;
         muteBtn.textContent = "Unmute"; // optionally update the button text
     } else {
         muteBtn.textContent = "Mute";
+        playMusic(musicEffects.bgMusic_1)
     }
 });
 
@@ -88,10 +89,9 @@ function stopMusic(music){
 
 function playMusic(music){
     if (isMuted) return; // Don't play if muted
-    music.load(); // reset it
+    music.currentTime = 0;
 
     music.play().catch((e) => {
         console.warn('Audio failed to play:', e);
     });
 }
-

@@ -44,6 +44,7 @@ document.addEventListener('keydown', handleKeyPress);
 function handleKeyPress(event) {
     if (event.code === 'Space' && !gameStarted) {
         event.preventDefault();
+        playMusic(window.musicEffects.bgMusic_1); 
         instructionBox.style.display = "none";
         startGame();
         return;
@@ -94,7 +95,6 @@ gameElements.forEach(el => el.remove());
 }
 
 function startGame() {
- playSoundEffect('bgMusic_1');
     lives = totalLives;
     playerScore = 0;
     scoreDiv.textContent = "000";
@@ -286,3 +286,5 @@ function playSoundEffect(effect) {
         sound.play().catch(err => console.warn("Failed to play sound:", err));
     }
 }
+
+
