@@ -36,7 +36,7 @@ instructionBox.innerHTML = `
   </div>`;
 instructionBox.style.display = "flex";
 
-    playSoundEffect('bgMusic_1');
+   
 }
 
 document.addEventListener('keydown', handleKeyPress);
@@ -94,7 +94,7 @@ gameElements.forEach(el => el.remove());
 }
 
 function startGame() {
-
+ playSoundEffect('bgMusic_1');
     lives = totalLives;
     playerScore = 0;
     scoreDiv.textContent = "000";
