@@ -208,4 +208,8 @@ body{
     background-color: var(--color-settings-button);
 }
 
+.settingsBtn:hover{
+     background-color:rgb(160, 118, 19);
+}
+
 
