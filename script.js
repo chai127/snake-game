@@ -44,7 +44,9 @@ document.addEventListener('keydown', handleKeyPress);
 function handleKeyPress(event) {
     if (event.code === 'Space' && !gameStarted) {
         event.preventDefault();
-        playMusic(window.musicEffects.bgMusic_1); 
+      if (!isAudioPlaying(currentMusic)) {
+  playMusic(currentMusic);
+}
         instructionBox.style.display = "none";
         startGame();
         return;

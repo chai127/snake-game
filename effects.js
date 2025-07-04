@@ -31,6 +31,8 @@ window.musicEffects = {
     select : new Audio('res/audio/select.mp3')
 };
 
+window.currentMusic = musicEffects.bgMusic_1;
+
 // Set both music tracks to loop
 window.musicEffects.bgMusic_1.loop = true;
 window.musicEffects.bgMusic_2.loop = true;
@@ -77,6 +79,7 @@ function addSelectSound(buttons, musicEffects) {
 }
 
 function toggleMusic(play, stop) {
+   currentMusic = play;
    stopMusic(stop);
    playMusic(play);
 
@@ -90,8 +93,18 @@ function stopMusic(music){
 function playMusic(music){
     if (isMuted) return; // Don't play if muted
     music.currentTime = 0;
-
+    
     music.play().catch((e) => {
         console.warn('Audio failed to play:', e);
     });
+}
+
+
+function isAudioPlaying(audio) {
+  return !audio.paused && !audio.ended && audio.currentTime > 0;
+}
+
+function checkIfPlaying() {
+  const audio = document.getElementById('myAudio');
+  return isAudioPlaying(audio);
 }
