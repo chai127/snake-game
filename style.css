@@ -19,9 +19,10 @@
   --color-score-field:rgba(56, 105, 98, 0.126);
   --color-canvas:rgb(13 18 39);
   --color-background:rgb(13 18 39);
-  --color-instruction: rgb(16, 26, 70);;
+  --color-instruction: rgb(16, 26, 70);
   --color-font-yellow:rgb(225, 189, 61);
-  --color-settings-panel: rgb(202, 169, 69);
+  --color-settings-panel:rgb(16, 26, 70);
+  --color-settings-button:rgb(212, 158, 31);
  }
 /* rgb(16, 26, 70); */ 
 body{
@@ -200,6 +201,11 @@ body{
 
 /* include animations in loading as well as during settings page */
 
-
+.settingsBtn {
+    padding: 0.6rem;
+    border-radius: 10px;
+    /* background-color: rgb(212, 158, 31); */
+    background-color: var(--color-settings-button);
+}
 
 
