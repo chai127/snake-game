@@ -10,6 +10,7 @@ let lives = totalLives;
 let playerScore = 0;
 let currentHighScore = 0;
 let gameStarted = false;
+let gamePaused = false;
 
 const x_snake = Math.floor(gridSize / 2) + 1;
 const y_snake = Math.floor(gridSize / 2) + 1;
@@ -266,10 +267,38 @@ function increaseSpeed(){
 }
 
 //pause game
+function pauseGame(btn) {
+    if (!gameStarted || gamePaused) return;
+    btn.textContent = "resume";
+    gamePaused = true;
+    clearInterval(gameInterval); // Stop the game loop
 
-//play game where you left off
+    instructionBox.innerHTML = `
+      <div class="instruction">
+        <h1>Game Paused</h1>
+        <h2>Press 'resume' to Resume</h2>
+      </div>`;
+    instructionBox.style.display = "flex";
+
+}
+
+function resumeGame(btn) {
+    if (!gameStarted || !gamePaused) return;
+    btn.textContent = "pause";
+    gamePaused = false;
+    instructionBox.style.display = "none";
+    gameInterval = setInterval(gameLoop, gameSpeedDelay);
+}
+
 
 //like reset highscore and like the whole game, including the theme
+function resetWholeGame() {
+    currentHighScore = 0;
+    scoreDiv.textContent = "000";
+    highScoreDiv.textContent =  "000";
+
+    startGame();
+}
 
 //add modes? like noob, easy, kachaow and idk pro? for speed
 

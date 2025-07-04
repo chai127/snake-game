@@ -4,7 +4,6 @@ window.isMuted = false;
 document.addEventListener("DOMContentLoaded", function () {
     settingsPanel.innerHTML = `
         <button id="pause" class="settingsBtn">Pause</button>
-        <button id="play" class="settingsBtn">Play</button>
         <button id="restart" class="settingsBtn">Restart</button>
         <button id="music-1" class="settingsBtn">Music 1</button>
         <button id="music-2" class="settingsBtn">Music 2</button>
@@ -14,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const allBtns = document.querySelectorAll(".settingsBtn");
 const pauseBtn = document.getElementById('pause');
-const playBtn = document.getElementById('play');
 const restartBtn = document.getElementById('restart'); 
 const musicBtn_1 = document.getElementById('music-1');
 const musicBtn_2 = document.getElementById('music-2');
@@ -66,6 +64,18 @@ window.musicEffects.bgMusic_2.loop = true;
     }
 });
 
+    pauseBtn.addEventListener( 'click', () => {
+         if (gamePaused) {
+        resumeGame(pauseBtn);
+        } else {
+        pauseGame(pauseBtn);
+        }
+    });
+    
+    restartBtn.addEventListener( 'click', () => {
+        resetWholeGame();
+    });
+
 });//end of the onload thing
 
 function addSelectSound(buttons, musicEffects) {
@@ -98,6 +108,7 @@ function playMusic(music){
         console.warn('Audio failed to play:', e);
     });
 }
+
 
 
 function isAudioPlaying(audio) {
