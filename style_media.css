@@ -1,0 +1,83 @@
+:root{
+  --icon-width: 15%;
+  --font-size: clamp(0.4rem, 0.8rem, 1rem);
+}
+
+@media screen and (max-width: 1024px) {
+   .score-field {
+      width: var(--score-width);
+      font-size: var(--font-size);
+    }
+.game-screen {
+  width: var(--game-width);
+  height: var(--game-width);
+  padding: 5vmin 0;
+  position: relative;
+}
+.instruction-overlay {
+  font-size: var(--font-size);
+}
+}
+
+
+@media screen and (max-width: 768px){
+  .instruction-overlay {
+    font-size: var(--font-size);  
+  }
+  #snake-logo{
+    width:8.5rem;
+    height: 8rem;
+  }
+  .score-field img{
+    width: 1.5rem;
+    height: 2rem;
+  }
+   .settings-panel {
+    width: 80%; 
+    /* flex-direction: column;  */
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+    .score-field img{
+    /* width: 0.5rem;
+    height: 1rem; */
+    width: var(--icon-width);
+    height: var(--icon-width);
+    }
+    .score-field {
+      padding: 0;
+      height: 10%;
+      width: var(--score-width);
+      font-size: var(--font-size);
+    }
+    #snake-logo{
+    width:7.5rem;
+    height: 6rem;
+    }
+.instruction{
+  font-size: 0.5rem;
+}
+    .settings-panel {
+    /* flex-direction: column; */
+    }
+}
+
+
+@media screen and (max-width: 320px){
+    .score-field img{
+    width: var(--icon-width);
+    height: var(--icon-width);
+    }
+    #snake-logo{
+    width:7.5rem;
+    height: 6rem;
+    }
+    .instruction{
+    font-size:0.3rem;
+    }
+    .settings-panel {
+    /* flex-direction: column; */
+    }
+}
